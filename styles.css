@@ -1,0 +1,49 @@
+body {
+    background-color: CadetBlue;
+    font-family: arial;
+  }
+  
+h1 {
+    text-align: center;
+  }
+  
+h2 {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+h4 {
+    font-weight: bold;
+  }
+  
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 50px;
+    background-color: azure;
+  }
+  
+th {
+    background-color: Teal;
+    color: azure;
+  }
+  
+td, th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+  }
+  
+.notes {
+    margin: 30px;
+    background-color: Azure;
+    padding: 20px;
+  }
+
+.footer {
+    margin: 30px;
+    background-color: lightgray;
+    padding: 10px;
+}

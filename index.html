@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Selectors and Visual Rules</title>
+    <link href="./styles.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>CSS Selectors and Visual Rules: A Cheatsheet</h1>
+    <!--CSS Visual Rules Table-->
+    <h2>CSS Visual Rules</h2>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Property</th>
+          <th scope="col">Value</th>
+          <th scope="col">Function</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>font-family</td>
+          <td>typeface name</td>
+          <td>changes the typeface of text within an HTML element</td>
+        </tr>
+        <tr>
+          <td>font-size</td>
+          <td>number of pixels</td>
+          <td>sets the size of the selected text</td>
+        </tr>
+        <tr>
+          <td>font-weight</td>
+          <td>bold or normal</td>
+          <td>controls whether text appears bold</td>
+        </tr>
+        <tr>
+          <td>text-align</td>
+          <td>left, right, or center</td>
+          <td>aligns the text as directed to the element that contains it</td>
+        </tr>
+        <tr>
+          <td>color</td>
+          <td>color name, hex value, or rgb value</td>
+          <td>changes the color of the selected element</td>
+        </tr>
+        <tr>
+          <td>background-color</td>
+          <td>color name, hex value, or rgb value</td>
+          <td>changes the background color of the selected element</td>
+        </tr>
+        <tr>
+          <td>opacity</td>
+          <td>numerical value between 0 and 1</td>
+          <td>sets how transparent the selected element will appear</td>
+        </tr>
+        <tr>
+          <td>background-image</td>
+          <td>URL or relative path to where the image is stored</td>
+          <td>sets a background image for the selected element</td>
+        </tr>
+      </tbody>
+    </table>
+    <!--Notes on Selectors, Structure, and Syntax-->
+    <h2>Selectors, Structure, and Syntax</h2>
+    <div class="notes">
+      <h4>Inline Styling</h4>
+      <p>You can add minor CSS styling to an HTML file by adding the style attribute to the opening tag of the element, and then setting it equal to the CSS style(s) you want applied to the element. <br> For example: <b> &lt;p style="color:red;"&gt;Sample Text&lt;p&gt; </b><br>This will cause the text of the paragraph to appear red.</p>
+      <h4>The &lt;style&gt; Tag</h4>
+      <p>You can add CSS to an HTML document by comtaining it inside the &lt;style&gt; tag inside the &lt;head&gt; element.</p>
+      <h4>The .css File</h4>
+      <p>Avoid mixing two kinds of code in one file by storing your CSS separately in its own file. You can then link your CSS file to your HTML file using the &lt;link&gt; element. The &lt;link&gt; element should be placed in the &lt;head&gt; element and is self-closing. <br>For example: <b>&lt;link href="style.css" type="text/css" rel="stylesheet"&gt;</b><br>href value is the path to the file, type describes the type of document you are linking to, and rel describes the relationship between the HTML and CSS file.</p>
+      <h4>CSS Selectors</h4>
+      <p>CSS can select which elements to style by using that element's <b>tag name</b>. For example, "p" for paragraphs, "h1" for main headings, etc.<br>It can also select an element based on a <b>class name</b>. If an element has a class applied to it, CSS can use it to apply styling. You can add multiple names to an element's class attribute by listing them inside the quote marks separated by a space. This allows us to mix and match CSS classes to create unique styling without writing a custom class for every styling combination needed.<br>If an element needs to be styled uniquely (no matter what classes are applied to the element), we can give the element an <b>ID</b>. ID's are meant to style only one element, and override the styles of classes and tags. They should be used sparingly because they are difficult to override.</p>
+      <h4>Syntax For Selecting HTML Elements</h4>
+      <p>To select an element by its tag:</p>
+      <p>h1 { <br>
+          color: red;<br>
+      }</p>
+      <p>To select an element by its class:</p>
+      <p>.class { <br>
+          color: red; <br>
+        }</p>
+      <p>To select an element by its ID:</p>
+      <p>#id { <br>
+      color: red;<br>
+      }</p>
+      <h4>Chaining Selectors</h4>
+      <p>You can select only HTML elements that have a specific class to apply styling to only those elements, and not every element with that tag. For example:</p>
+      <p>h1.special { <br>
+        color: red; <br>
+        } </p>
+      <p>This selects all h1 elements with a class of "special" and disregards all h1 elements that do not share that class attribute.</p>
+      <h4>Nested Elements</h4>
+      <p>CSS also supports selecting elements that are nested within other elements. For example:</p>
+      <p>.main-list li { <br>
+        }</p>
+      <p>This selects only the list items inside of a list with class .main-list.</p>
+      <h4>Multiple Selectors</h4>
+      <p>To make CSS more concise, it's possible to add CSS styles to multiple CSS selectors all at once. This prevents writing repetitive code. For example:</p>
+      <p>h1, .menu { <br>
+      font-family: georgia;<br>
+      }</p>
+      <h4>Specificity</h4>
+      <p>Specificity is the order by which a browser decides which CSS styles will be displayed. Best practice is to use the lowest degree of specificity to style an element so that if the element needs a new style, it is simple to override. Tags are lowest specificity, classes are middle ground, and IDs are highest specificity. <br> IDs override classes and tags. If an element has a class and an ID, the browser will display the ID styling.<br>The only thing more specific than an ID is "!important". Important can be applied to specific attributes instead of full rules. It will override ANY style no matter how specific it is, and should almost never be used. It's best to avoide using !important altogether, since you can't guarantee that an element will need to have a specific style 100% of the time. If you are tempted to use it or are working with code that uses it, you should consider reorganizing the CSS, making the code more flexible and easier to maintain in the long run.</p>
+      <h4>Chaining and Specificity</h4>
+      <p>Adding more than one tag, class, or ID to a CSS selector increases the specificity of that selector.</p>
+    </div>
+    <!--Footer-->
+    <footer>
+        <div class="footer">
+            <p>&copy; 2020 Jessie Rohrer</p>
+        </div>
+    </footer>
+  </body>  
+</html>
