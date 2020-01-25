@@ -1,3 +1,5 @@
 # hello-world
-First project on GitHub
-I am knee-deep in new website memberships thanks to a coding bootcamp :)
+
+## CSS Cheat Sheets Project
+
+To view the project webpage, go to https://jrrohrer.github.io/hello-world/
