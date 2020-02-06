@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML, CSS, & JavaScript Reference Guide</title>
+    <link href="./styles.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="html.html">HTML Home</a></li>
+          <li><a href="">Document Standards</a></li>
+          <li><a href="">Tables</a></li>
+          <li><a href="">Forms & Validation</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h1>HTML Structure</h1>
+    <!--Notes on Page Structure and Components-->
+    <h2>What is HTML?</h2>
+    <p>HTML stands for HyperText Markup Language. A markup language defines the structure and presentation of raw text. Hypertext is text displayed on a computer or device that provides access to other information through links.</p>
+    <h2>HTML Anatomy</h2>
+        <ul>
+            <li>Elements: HTML tags and the content (text or media) that they contain.</li>
+            <li>Tags: the element name surrounded by &lt; and &gt;.</li>
+            <li>Opening Tag: HTML used to begin an element. For example, <code>&lt;p&gt;</code></li>
+            <li>Closing Tag: HTML used to close an element. For example, <code>&lt;/p&gt;</code></li>
+            <li>Content: the infomation contained between the opening and closing tags.</li>
+        </ul>
+    <h2>The Body</h2>
+    <p>The body of the HTML document is the key element used to build the webpage. Only elements and content inside the body tags will be displayed by the browser.</p>
+    <p>Body tags:<code>&lt;body&gt;&lt;/body&gt;</code></p>
+    <h2>HTML Structure</h2>
+    <p>HTML is organized as a collection of family tree relationships. When an element is contained inside of another element, it is considered a "child" of the containing element. The containing element is referred to as the "parent" element. For example, the body element contains the head element. The body is the parent element and the head is the child element.</p>
+        <pre>
+            <code>
+                &lt;body&gt;
+                    &lt;head&gt;
+                
+                    &lt;/head&gt;
+                &lt;/body&gt;
+            </code>
+        </pre>
+    <p>There can be multiple levels of nesting, so the analogy can extend to grand-child, great-grand-child, etc. Child elements can inherit styling and behavior from their parent elements.</p>
+   <h2>Headings</h2>
+   <p>HTML headings are similar to headings in other media in that they can be used to catch the reader's attention, describe content, or organize information on a page. In HTML there are 6 styles of heading elements, &lt;h1&gt; through &lt;h6&gt;. H1 is used for main headings, titles, or other important information. H2-6 are used for subheadings, with h6 being the smallest.</p>
+   <h2>Divs</h2>
+   <p>"Div" is short for "division". It's a container element that divides the page into sections. It's useful for grouping together related elements and making page content more manageable.</p>
+   <p>For example:</p>
+        <pre>
+            <code>
+                &lt;body&gt; 
+                    &lt;div&gt;
+                        &lt;h1&gt;&lt;/h1&gt;
+                        &lt;p&gt;&lt;/p&gt;
+                    &lt;/div&gt;    
+                &lt;/body&gt;
+            </code>
+        </pre>
+    <p>Divs can contain any other HTML elements, such as links, images, and videos.</p>
+    <h2>Attributes</h2>
+    <p>Attributes are content added to the opening tag of an element to do anything from providing information to styling. Attributes have two parts: name & value. A common attribute is the "class" attribute, which can be used to specify different content (such as divs) and is really helpful when you use the same element more than once.</p>
+    <p>For example:</p>
+        <pre>
+            <code>
+                &lt;div class="intro"&gt;
+                &lt;/div&gt;
+            </code>
+        </pre>
+    <p>Here, the name is "class" and the value is "intro". You can use this class attribute when writing a CSS stylesheet to select all elements with the class "intro" for styling.</p>
+    <h2>Displaying Text</h2>
+    <p>If you want to display text in HTML, you can use a paragraph or span.</p>
+    <p>Paragraphs (&lt;p&gt;) contain a block of plain text. Spans (&lt;span&gt;) contain short pieces of text or other HTML. They are used to separate small pieces of content that are on the same line as other content. It's est to use a span element when you want to target a specific piece of content that is inline. If you want to divide your content into blocks, its better to use a div.</p>
+    <h2>Common HTML Tags</h2>
+    <h4>Styling Text</h4>
+    <p>Emphasis: &lt;em&gt; emphasizes text (italics)</p>
+    <p>Strong: &lt;strong&gt; highlights important text (bold)</p>
+    <h4>Line Breaks</h4>
+    <p>&lt;br&gt; only has an opening tag. Can be used anywhere in your HTML document and a line break is shown in the browser.</p>
+    <h4>Unordered Lists</h4>
+    <p>Used to create a bullet list of items in no particular order. Individual items must be added with list item (&lt;li&gt;&lt;/li&gt;) tags.</p>
+    <p>For example:</p>
+        <pre>
+            <code>
+                &lt;ul&gt;
+                    &lt;li&gt;Item 1&lt;/li&gt;
+                    &lt;li&gt;Item 2&lt;/li&gt;
+                    &lt;li&gt;Item 3&lt;/li&gt;
+                &lt;/ul&gt;
+            </code>
+        </pre>
+    <p>...which will produce:</p>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <h4>Ordered Lists</h4>
+    <p>Used to create a list of items in order. For example:</p>
+        <pre>
+            <code>
+                &lt;ol&gt;
+                    &lt;li&gt;Item 1&lt;/li&gt;
+                    &lt;li&gt;Item 2&lt;/li&gt;
+                    &lt;li&gt;Item 3&lt;/li&gt;
+                &lt;/ol&gt;
+            </code>
+        </pre>
+    <p>...which will produce:</p>
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ol>
+    <h4>Images</h4>
+    <p>&lt;img&gt; tag allows you to add an image to a webpage. It is a self-closing tag. It has a required <code>src</code> attribute which must be set to the image's storage location (either a URL or relative file path).</p>
+        <pre>
+            <code>
+                &lt;img src="http://www.website.com/images/image-location.jpg"/&gt;
+                &lt;img src="image-location.jpg"/&gt;
+            </code>
+        </pre>
+    <h4>Image Alts</h4>
+    <p>&lt;alt&gt; means "alternative text" and can be added to the <code>img</code> tag to provide a description of the image in case the image can't be seen or displayed. It is also an important step to provide accessibility to your page. (For example: providing an image description for those using screen readers).</p>
+        <pre>
+            <code>
+                &lt;img src="image-location.jpg" alt="a field of yellow flowers at sunset"/&gt;
+            </code>
+        </pre>
+    <p>It also plays a role in SEO because search engines can't "see" images on websites as they crawl the internet. Including <code>alt</code> attributes on your website can improve it's ranking in searches.</p>
+    <h4>Videos</h4>
+    <p>&lt;vidoe&gt; tag works much like the &lt;img&gt; tag, except it is not self-closing. It must contain src, width, height, controls, and fallback text.</p>
+        <pre>
+            <code>
+                &lt;video src="myvideo.mp4" width="340" height="260" controls&gt; 
+                Video Not Supported
+                &lt;/video&gt;
+            </code>
+        </pre>
+    <footer>
+        <div class="footer">
+            <p>&copy; 2020 Jessie Rohrer</p>
+        </div>
+    </footer>
+  </body>
+</html>

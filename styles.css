@@ -4,7 +4,7 @@ body {
   }
   
 
-  ul {
+  nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -12,11 +12,11 @@ body {
     background-color: teal;
   }
   
-  li {
+  nav li {
     float: left;
   }
   
-  li a {
+  nav li a {
     display: block;
     color: white;
     text-align: center;
@@ -24,7 +24,7 @@ body {
     text-decoration: none;
   }
   
-  li a:hover {
+  nav li a:hover {
     background-color:#003333;
   }
 
@@ -60,7 +60,22 @@ td, th {
     text-align: center;
     padding: 10px;
   }
-  
+
+code {
+    font-size: 14px;
+    font-family: monospace;
+  }
+
+pre {
+  background-color: teal;
+  color: azure;
+  text-align: left;
+  border: 2px solid azure;
+  max-width: 100%;
+  overflow: auto;
+  display: block;
+  word-wrap: break-word;
+}
 .notes {
     margin: 30px;
     background-color: Azure;
