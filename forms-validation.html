@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML, CSS, & JavaScript Reference Guide</title>
+    <link href="./styles.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="html.html">HTML Home</a></li>
+          <li><a href="html-structure.html">HTML Structure</a></li>
+          <li><a href="doc-standards.html">Document Standards</a></li>
+          <li><a href="html-tables.html">Tables</a></li>
+          <li><a href="forms-validation.html">Forms & Validation</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h1>HTML Forms</h1>
+    <p>Just like a physical form, an HTML <code>&lt;form&gt;</code> element is responsible for collecting information to send somewhere else. The form element is a great took for collecting information, but then we need to send that information somewhere else for processing. We need to supply the form element with both the location of where the form's information goes and what HTTP request to make.</p>
+        <pre>
+            <code>
+                &lt;form action="/example.html" method="POST"&gt;
+                &lt;/form&gt;
+            </code>
+        </pre>
+    <p>This creates the skeleton of a form that will send info to "example.html" as a POST request. The "action" attribute determines where info is sent and the "method" attribute is assigned an HTTP verb that is included in the HTTP request. The form element can contain child elements, such as headers and paragraphs.</p>
+    <h4>Text Input</h4>
+        <p>The <code>&lt;input&gt;</code> element has a "type" attribute which determines how it renders on the web page and what kind of data it can accept.</p>
+            <pre>
+                <code>
+                    &lt;form action="/example.html" method="POST"&gt;
+                        &lt;input type="text" name="first-text-field"&gt;
+                    &lt;/form&gt;
+                </code>
+            </pre>
+        <p>When we create an input element with type="text", it renders a text field that users can type into. We must also include a "name" attribute for the input element, or the info in the input won't be sent when the form is submitted.</p>
+        <p>The form in the example above will render as an empty text box. After users enter info, the value of the "value" attribute becomes what is typed into the text field. The value of the value attribute is then paired with the value of the name attribute and sent as text when the form is submitted.</p>
+        <p>We can assign a default value for the value attribute so that users have a pre-filled text field when they first see the form.</p>
+            <pre>
+                <code>
+                    &lt;form action="/example.html" method="POST"&gt;
+                        &lt;input type="text" name="first-text-field" value="already pre-filled"&gt;
+                    &lt;/form&gt;
+                </code>
+            </pre>
+        <p>Will render as:</p>
+            <form action="/example.html" method="POST">
+                <input type="text" name="first-text-field" value="already pre-filled">
+            </form>
+    <h4>Adding A Label</h4>
+        <p>For a user to properly identify an input, we use a <code>&lt;label&gt;</code> element. The label element has opening and closing tags and displays text that is written between them. To associate a label and in input, the input needs an ID attribute. We then assign the "for" attribute of the label element with the value of the ID attribute of the input element.</p>
+            <pre>
+                <code>
+                    &lt;form action="/example.html" method="POST"&gt;
+                        &lt;label for="meal"&gt;What do you want to eat?&lt;/label&gt;
+                        &lt;br&gt;
+                        &lt;input type="text" name="food" id="meal"&gt;
+                    &lt;/form&gt;    
+                </code>
+            </pre>
+        <p>Which will render as:</p>
+            <form action="/example.html" method="POST">
+                <label for="meal">What do you want to eat?</label>
+                <br>
+                <input type="text" name="food" id="meal">
+            </form>
+    <h4>Password Input</h4>
+        <p>An <code>&lt;input type="password"&gt;</code> element will replace the user's input text with another character (like an asterisk). Even though the password is obscured, the value of the text is sent when the form is submitted.</p>
+            <pre>
+                <code>
+                    &lt;form&gt;
+                        &lt;label for="user-pw"&gt;Password:&lt;/label&gt;
+                        &lt;input type="password" id="user-pw" name="user-pw"&gt;
+                    &lt;/form&gt;
+                </code>
+            </pre>
+        <p>This creates a password entry field that obscures the entered text.</p>
+            <form>
+                <label for="user-pw">Password:</label>
+                <input type="password" id="user-pw" name="user-pw">
+            </form>
+    <h4>Number Input</h4>
+        <p>Be setting <code>&lt;input type="number"&gt;</code>, we can restrict what users type into the input field. We can also provide a &lt;step&gt; attribute which creates arrows inside the input field to increase or decrease by the value of the step attribute.</p>
+            <pre>
+                <code>
+                    &lt;form&gt;
+                        &lt;label for="years"&gt;Years of Experience:&lt;/label&gt;
+                        &lt;input id="years" name="years" type="number" step="1"&gt;
+                    &lt;/form&gt;
+                </code>
+            </pre>
+        <p>Renders as:</p>
+            <form>
+                <label for="years">Years of Experience:</label>
+                <input id="years" name="years" type="number" step="1">
+            </form>
+    <h4>Range Input</h4>
+        <p>If we want to limit what numbers our users could type, we can set type="range" which creates a slider. To set the minimum and maximum values of the slider, we assign values to the "min" and "max" attributes of the input element. We can also control how smoothly the slider works by assigning the "step" attribute a value. Smaller step values will make the slider move more fluidly, while larger step values will make the slider move more noticably.</p>
+            <pre>
+                <code>
+                    &lt;form&gt;
+                        &lt;label for="volume"&gt;Volume Control:&lt;/label&gt;
+                        &lt;input id="volume" name="volume" type="range" min="0" max="100" step="1"&gt;
+                    &lt;/form&gt;
+                </code>
+            </pre>
+        <p>Which renders:</p>
+            <form>
+                <label for="volume">Volume Control:</label>
+                <input id="volume" name="volume" type="range" min="0" max="100" step="1">
+            </form>
+        <p>Every time the slider moves by 1, the value of the input's value attribute changes.</p>
+    <h4>Checkbox Input</h4>
+        <p>Use the input attribute <code>type="checkbox"</code>.</p>
+            <pre>
+                <code>
+                    &lt;form&gt;
+                        &lt;p&gt;Choose your toppings:&lt;/p&gt;
+                        &lt;label for="cheese"&gt;Extra Cheese&lt;/label&gt;
+                        &lt;input id="cheese" name="topping" type="checkbox" value="cheese"&gt;
+                        &lt;br&gt;
+                        &lt;label for="pepperoni"&gt;Pepperoni&lt;/label&gt;
+                        &lt;input id="pepperoni" name="topping" type="checkbox" value="pepperoni"&gt;
+                    &lt;/form&gt;
+                </code>
+            </pre>
+        <p>Renders as:</p>
+            <form>
+                <p>Choose your toppings:</p>
+                <label for="cheese">Extra Cheese</label>
+                <input id="cheese" name="topping" type="checkbox" value="cheese">
+                <br>
+                <label for="pepperoni">Pepperoni</label>
+                <input for="cheese" name="topping" type="checkbox" value="cheese">
+            </form>
+        <p>There are assigned values to the value attribute of the checkboxes. These values are not visible on the form itself, which is why it's important to use an associated label to identify the checkbox. Each input has the same value for the name attribute. Using the same name attribute for each checkbox groups the input elements together, however, each input has a unique ID to pair it with a label.</p>
+    <h4>Radio Button Input</h4>
+        <p>Checkboxes are great for allowing users to choose multiple options, but when you want to limit the responses to a single option, use radio buttons.</p>
+            <pre>
+                <code>
+                    &lt;form&gt;
+                        &lt;p&gt;What is the sume of 1 + 1?&lt;/p&gt;
+                        &lt;input type="radio" id="two" name="answer" value="2"&gt;
+                        &lt;label for="two"&gt;2&lt;/label&gt;
+                        &lt;br&gt;
+                        &lt;input type="radio" id="eleven" name="answer" value="11"&gt;
+                        &lt;label for="eleven"&gt;11&lt;/label&gt;
+                    &lt;/form&gt;
+                </code>
+            </pre>
+        <p>Which renders as:</p>
+            <form>
+                <p>What is the sum of 1 + 1?</p>
+                <input type="radio" id="two" name="answer" value="2">
+                <label for="two">2</label>
+                <br>
+                <input type="radio" id="eleven" name="answer" value="11">
+                <label for="eleven">11</label>
+            </form>
+        <p>Radio buttons, like checkboxes, do not display their value. We have an associated label to represent the value of the radio button. To group radio buttons together, we assign them the same name and only one radio button from that group can be selected.</p>    
+    <h4>Dropdown Lists</h4>
+        <p>Dropdown lists allow users to pick one option out of a list.</p>
+            <pre>
+                <code>
+                    &lt;form&gt;
+                        &lt;label for="lunch"&gt;What's for lunch?&lt;/label&gt;
+                        &lt;select id="lunch" name="lunch"&gt;
+                            &lt;option value="pizza"&gt;Pizza&lt;/option&gt;
+                            &lt;option value="curry"&gt;Curry&lt;/option&gt;
+                            &lt;option value="salad"&gt;Salad&lt;/option&gt;
+                            &lt;option value="ramen"&gt;Ramen&lt;/option&gt;
+                            &lt;option value="tacos"&gt;Tacos&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;/form&gt;
+                </code>
+            </pre>
+        <p>Which renders as:</p>
+            <form>
+                <label for="lunch">What's for lunch?</label>
+                <select id="lunch" name="lunch">
+                    <option value="pizza">Pizza</option>
+                    <option value="curry">Curry</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Ramen">Ramen</option>
+                    <option value="Tacos">Tacos</option>
+                </select>
+            </form>
+        <p>Use the <code>&lt;select&gt;</code> element to create the dropdown list. To populate the list, use <code>&lt;option&gt;</code> elements, each with a value attribute. By default, only one can be selected. Text rendered is the text included between the opening and closing option tags, but the value of the value attribute is what is used in the form submission. When the form is submitted, the information from this input field is sent using the name of the selevt element and the value of the chosen option element. If the user chooses pizza, the form submits "lunch=pizza".</p>
+    <h4>Datalist Input</h4>
+        <p>The <code>&lt;datalist&gt;</code> element is used with an <code>&lt;input type="text"&gt;</code> element. The input creates a text field that users can type into and filter options from the datalist.</p>
+            <pre>
+                <code>
+                    &lt;form&gt;
+                        &lt;label for="city"&gt;Ideal City to Visit&lt;/label&gt;
+                        &lt;input type="text" list="cities" id="city" name="city"&gt;
+                        &lt;datalist id="cities"&gt;
+                            &lt;option value="New York City"&gt;&lt;/option&gt;
+                            &lt;option value="Tokyo"&gt;&lt;/option&gt;
+                            &lt;option value="Dublin"&gt;&lt;/option&gt;
+                            &lt;option value="Paris"&gt;&lt;/option&gt;
+                            &lt;option value="London"&gt;&lt;/option&gt;
+                            &lt;option value="Orlando"&gt;&lt;/option&gt;
+                            &lt;option value="Other"&gt;&lt;/option&gt;
+                        &lt;/datalist&gt;
+                    &lt;/form&gt;
+                </code>
+            </pre>
+        <p>Which will render as:</p>
+            <form>
+                <label for="city">Ideal City to Visit</label>
+                <input type="text" list="cities" id="city" name="city">
+                <datalist id="cities">
+                    <option value="New York City"></option>
+                    <option value="Tokyo"></option>
+                    <option value="Dublin"></option>
+                    <option value="Paris"></option>
+                    <option value="London"></option>
+                    <option value="Orlando"></option>
+                    <option value="Other"></option>
+                </datalist>
+            </form>
+        <p>Notice that the input has a "list" attribute. The input is associated with the datalist via the input's list attribute and the id of the datalist. When the text field is selected, a list of options appears, or users can type in the field to search for a particular option. If none of the options match, the user can still input their own answer. When the form is submitted, the value of the input's name and the value of the option selected, or what the user typed in, is sent as a pair.</p>
+    <h4>Textarea Elements</h4>        
+        <p>In cases where users need to write more information, we can use a <code>&lt;textarea&gt;</code> element instead of an input element. The textarea element is used to create a bigger text field for users to write more text. We can add the attributes "rows" and "cols" to determine the amount of rows and columns for the textarea.</p>
+            <pre>
+                <code>
+                    &lt;form&gt;
+                        &lt;label for="blog"&gt;New blog post:&lt;/label&gt;
+                        &lt;br&gt;
+                        &lt;textarea id="blog" name="blog" rows="5" cols="30"&gt;
+                        &lt;/textarea&gt;
+                    &lt;/form&gt;
+                </code>
+            </pre>
+        <p>Which renders:</p>
+            <form>
+                <label for="blog">New blog post:</label>
+                <br>
+                <textarea id="blog" name="blog" rows="5" cols="30"></textarea>
+            </form>
+        <p>This example renders a text field that is 5 rows by 30 columns. The user can increase the size by clicking and dragging the bottom right corner. When the form is submitted, the value of &lt;textarea&gt; is the text written in the box. Default text can be added between the &lt;textarea&gt; tags.</p>
+    <h4>Submit Form</h4>    
+        <p>The purpose of a form is to collect information. Users click "submit" to send off their info. To make a submit button, use the input element and set type="submit". The value assigned to input shows up as text on the submit button. If there is no value attribute, "submit" is the default button text.</p>
+            <pre>
+                <code>
+                    &lt;form&gt;
+                        &lt;input type="submit" value="send"&gt;
+                    &lt;/fomr&gt;
+                </code>
+            </pre>
+        <p>Renders as:</p>
+            <form>
+                <input type="submit" value="send">
+            </form>
+    <h1>Form Validation</h1>          
+    <h4>Requiring an Input</h4>
+        <p>Sometimes we have field in our forms which are not optional. I.e. there must be information provided before the form can be submitted. To enforce this rule, we can add the "required"attribute to an input element. If the user tries to submit the form without the required info, they will get an error message.</p>
+            <pre>
+                <code>
+                    &lt;input tpye="text" id="allergies" name="allergies" required&gt;
+                </code>
+            </pre>
+    <h4>Set a Minimum and Maximum</h4>
+        <p>Another built-in validation is to assign a minimum or maximum to a number field (&lt;input type="number"&gt; or &lt;input type="range"&gt;). To set a minimum acceptable value, we use the "min" attribute and assign a value. For a maximum acceptable value, we use the "max" attribute (see the range input example above with the volume slider).</p>
+    <h4>Checking Text Length</h4>
+        <p>To set a minimum number of characters for a text field, we add the "minlength" attribute and set a numerical value. To set a maximum number of characters for a text field, we use the "maxlength" attribute and assign a numerical value.</p>
+            <pre>
+                <code>
+                    &lt;input type="text" id="summary" name="summary" minlength="5" maxlength="250"&gt;
+                </code>
+            </pre>
+        <p>If a user tries to submit the form with more or less than the set min/max, they will get an error message.</p>
+    <h4>Matching a Pattern</h4>
+        <p>For cases when we want user input to follow specific guidelines, we use the "pattern" attribute and assign it a regular expression (regex). Regular expressions are a sequence of characters that make up a search pattern. If the input matches the regex, the form can be submitted. <br> For example, we want to check for a valid credit card number (14-16 digits). We could use the regex: [0-9]{14-16}, which checks that the user provided only numbers and that they entered at least 14 but not more than 16 digits. With the pattern in place, users can't submit the form with a character that doesn't fit the regex.</p>
+            <pre>
+                <code>
+                    &lt;form action="/example.html" method="POST"&gt;
+                        &lt;label for="payment"&gt;Credit Card Number&lt;/label&gt;
+                        &lt;br&gt;
+                        &lt;input id="payment" name="payment" type="text" required pattern="[0-9]{14-16}"&gt;
+                        &lt;input type="submit" value="Submit"&gt;
+                    &lt;/form&gt;
+                </code> 
+            </pre>
+        <p>Which looks like:</p>
+            <form>
+                <label for="payment">Credit Card Number</label>
+                <br>
+                <input id="payment" name="payment" type="text" required pattern="[0-9]{14-16}">
+                <input type="submit" value="Submit">
+            </form>
+
+
+    <footer>
+        <div class="footer">
+            <p>&copy; 2020 Jessie Rohrer</p>
+            <p>Information contained in this page has been taken from my notes after taking courses at Codecademy & freeCodeCamp. For more in-depth information, I highly recommend taking courses on both sites yourself. This site is just a quick reference guide.</p>
+        </div>
+    </footer>
+  </body>
+</html>
