@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML, CSS, & JavaScript Reference Guide</title>
+    <link href="./styles.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="html.html">HTML Home</a></li>
+            <li><a href="html-structure.html">HTML Structure</a></li>
+            <li><a href="doc-standards.html">Document Standards</a></li>
+            <li><a href="html-tables.html">Tables</a></li>
+            <li><a href="">Forms & Validation</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h1>HTML Tables</h1>
+    <h4>Create A Table</h4>
+        <p>Before displaying data, you must first create the table that will contain the data using the &lt;table&gt; element.</p>
+    <h4>Table Rows</h4>
+        <p>In many programs that use tables, the table is already predefined for you, meaning that it contains the rows, columns, and cells that will hold data. In HTML, all of these components must be created. The first step in entering data is to add rows using the &lt;tr&gt; (tablerow) element.</p>
+            <pre>
+                <code>
+                    &lt;table&gt;
+                        &lt;tr&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;/tr&gt;
+                    &lt;/table&gt;
+                </code>
+            </pre>
+        <p>The table in the example above will have two rows.</p>
+    <h4>Table Data</h4>
+        <p>Rows aren't sufficient to add data to a table. Each cell element must be defined. In HTML, you can add data using the table data element (&lt;td&gt;).</p>
+            <pre>
+                <code>
+                    &lt;table&gt;
+                        &lt;tr&gt;
+                            &lt;td&gt;78&lt;/td&gt;
+                            &lt;td&gt;82&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                </code>
+            </pre>
+        <p>The example above results in a table with one row and two columns. Two data points were entered on one row, creating two cells of data.</p>
+    <h4>Table Headings</h4>
+        <p>To add titles to rows or columns, you can use the table heading element (&lt;th&gt;). The table heading element is used just like the table data element, except with a relevant title. A table heading must be placed within a table row.</p>
+            <pre>
+                <code>
+                    &lt;table&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;&lt;/th&gt;
+                            &lt;th scope="col"&gt;Saturday&lt;/th&gt;
+                            &lt;th scope="col"&gt;Sunday&lt;/th&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;th scope="row"&gt;Temperature&lt;/th&gt;
+                            &lt;td&gt;73&lt;/td&gt;
+                            &lt;td&gt;81&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                </code>
+            </pre>
+        <p>The above example would produce the following table:</p>
+        <table>
+            <tr>
+                <th></th>
+                <th scope="col">Saturday</th>
+                <th scope="col">Sunday</th>
+            </tr>
+            <tr>
+                <th scope="row">Temperature</th>
+                <td>73</td>
+                <td>81</td>
+            </tr>
+        </table>
+        <p>The "scope" attribute takes one of two values: "row" or "col", which tells the browser that the heading is for either a row or column.</p>
+    <h4>Table Borders</h4>
+        <p>In older versions of HTML, a table border could be added using inline styling, but this is no longer best practice. It is now encouraged that tables be styled with CSS as part of the webpage's stylesheet.</p>
+            <pre>
+                <code>
+                    table, td {
+                        border: 1px solid black;
+                    }
+                </code>
+            </pre>
+    <h4>Spanning Columns</h4>
+        <p>What if the table contains data that spans across several columns? We can use the "colspan" attribute, which accepts an integer greater than or equal to 1 to denote the number of columns the data spans across.</p>
+            <pre>
+                <code>
+                    &lt;table&gt;
+                        &lt;tr&gt;
+                            &lt;th&gt;Monday&lt;/th&gt;
+                            &lt;th&gt;Tuesday&lt;/th&gt;
+                            &lt;th&gt;Wednesday&lt;/th&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td colspan="2"&gt;Out of Town&lt;/td&gt;
+                            &lt;td&gt;Back in Town&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                </code>
+            </pre>
+        <p>...produces the following table:</p>
+            <table>
+                <tr>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                </tr>
+                <tr>
+                    <td colspan="2">Out of Town</td>
+                    <td>Back in Town</td>
+                </tr>
+            </table>
+    <h4>Spanning Rows</h4>
+            <p>Data can span multiple rows using the "rowspan" attribute. It accepts an integer greater than or equal to 1 to denote the number of rows it spans across.</p>
+                <pre>
+                    <code>
+                        &lt;td rowspan="3"&gt;Work&lt;/td&gt;&lt;th&gt;Monday&lt;/th&gt;
+                    </code>
+                </pre>
+    <h4>Table Body</h4>
+        <p>Long tables can be sectioned off using the "table body" element: <code>&lt;tbody&gt;</code>. The table body element should contain all of the table's data, excluding the table's headings.</p>
+    <h4>Table Head</h4>
+        <p>When a table's body is sectioned off, it also makes sense to section off the table's headings using the <code>&lt;thead&gt;</code> table head element.</p>
+    <h4>Table Footer</h4>
+        <p>The bottom part of a long table can also be sectioned off using the table footer element: <code>&lt;tfoot&gt;</code></p>
+        <p>Here is a table that uses the table body, table head, and table footer elements:</p>
+                <pre>
+                    <code>
+                        &lt;table&gt;
+                            &lt;thead&gt;
+                                &lt;tr&gt;
+                                    &lt;th&gt;Quarter&lt;/th&gt;
+                                    &lt;th&gt;Revenue&lt;/th&gt;
+                                    &lt;th&gt;Costs&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/thead&gt;
+                            &lt;tbody&gt;
+                                &lt;tr&gt;
+                                    &lt;td&gt;Q1&lt;/td&gt;
+                                    &lt;td&gt;$10M&lt;/td&gt;
+                                    &lt;td&gt;$7.5M&lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;                                
+                                    &lt;td&gt;Q2&lt;/td&gt;
+                                    &lt;td&gt;$12M&lt;/td&gt;
+                                    &lt;td&gt;$5M&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tbody&gt;
+                            &lt;tfoot&gt;
+                                &lt;tr&gt;
+                                    &lt;th&gt;Total&lt;/th&gt;
+                                    &lt;td&gt;$22M&lt;/td&gt;
+                                    &lt;td&gt;$12.5M&lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/tfoot&gt;
+                        &lt;/table&gt;
+                    </code>
+                </pre>
+            <p>Result:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quarter</th>
+                            <th>Revenue</th>
+                            <th>Costs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Q1</td>
+                            <td>$10M</td>
+                            <td>$7.5M</td>
+                        </tr>
+                        <tr>
+                            <td>Q2</td>
+                            <td>$12M</td>
+                            <td>$5M</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Total</th>
+                            <td>$22M</td>
+                            <td>12.5M</td>
+                        </tr>
+                    </tfoot>
+                </table>
+        <p>The first row is the table head, the middle two rows are the table body, and the last row is the table footer.</p>
+    <h4>Styling Tables</h4>
+        <p>Best practice is to add styling to your table using CSS. For example:</p>
+            <pre>
+                <code>
+                    table, th, td {
+                        border: 1px solid black;
+                        font-family: Arial, sans-serif;
+                        text-align: center;
+                    }
+                </code>
+            </pre>
+    <footer>
+        <div class="footer">
+            <p>&copy; 2020 Jessie Rohrer</p>
+            <p>Information contained in this page has been taken from my notes after taking courses at Codecademy & freeCodeCamp. For more in-depth information, I highly recommend taking courses on both sites yourself. This site is just a quick reference guide.</p>
+        </div>
+    </footer>
+  </body>
+</html>
