@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML, CSS, & JavaScript Reference Guide</title>
+    <link href="./styles.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="html.html">HTML Home</a></li>
+          <li><a href="html-structure.html">HTML Structure</a></li>
+          <li><a href="">Tables</a></li>
+          <li><a href="">Forms & Validation</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h1>HTML Document Standards</h1>
+        <p>Here are the rules and standards for the bones of your webpage. All the parts of an HTML document required for the browser to properly process and display a webpage.</p>
+    <h2>Setting Up the HTML File</h2>
+    <h4>Preparing for HTML</h4>
+        <p>Tell browsers your document is using HTML by starting with a document type declaration: <code>&lt;!DOCTYPE html&gt;</code></p>
+        <p>This declaration is an instruction and must be the first line of code in your HTML documents. It tells the browser what to expect, along with which version of HTML is being used. (The browser will assume html=HTML5, which is the current standard.) Always save HTML code files with the ".html" file extension.</p>
+    <h4>The HTML Tag</h4>
+        <p>To create HTML structure and content, add opening and closing &lt;html&gt; tags after declaring the document type. Anything inside these tags will be interpreted as HTML code.</p>
+    <h4>The Head</h4>
+        <p>The &lt;head&gt; tag goes inside the &lt;html&gt; tag and contains the metadata for a webpage. Metadata is information about a page that isn't displayed directly on the page.</p>
+    <h4>Page Titles</h4>
+        <p>A browser's tab displays the title specified in the &lt;title&gt; tag, which should be located inside the &lt;head&gt; tag.</p>
+    <h4>HTML Boilerplate Code</h4>
+        <p>A boilerplate is just basically an HTML skeleton. They're the essentials the rest of the page is built off of.</p>
+            <pre>
+                <code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;title&gt;Page Title&lt;/title&gt;
+                            (links to fonts, stylesheets, etc)
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;h1&gt;Main Header&lt;/1&gt;
+                            (content)
+                        &lt;/body&gt;
+                        &lt;footer&gt;
+                            (copyright, links, social media buttons, etc)
+                        &lt;/footer&gt;
+                    &lt;/html&gt;
+                </code>
+            </pre>
+    
+    
+    <h2>Linking</h2>
+    <h4>Linking to Other Webpages</h4>
+        <p>Add links to a web page by adding anchor (&lt;a&gt;) elements and including the text of the link inside the opening and closing tags.</p>
+            <pre>
+                <code>
+                    &lt;a href="https://wikipedia.org"&gt;This is a link to Wikipedia&lt;/a&gt;
+                </code>
+            </pre>
+        <p>The anchor tag includes the href attribute (which stands for Hyperlink Reference), which is used to link to the path or address where a file is located (usually a URL, can also be a relative path to another html file stored locally.)</p>
+    <h4>Opening Links in a New Tab</h4>
+        <p>Use the <code>target</code> attribute of the anchor element to tell the browser where to open the link. To have the link open in a new tab, the target should be set to "_blank".</p>
+            <pre>
+                <code>
+                    &lt;a href="www.website.com" target="_blank"&gt;A website&lt;/a&gt;
+                </code>
+            </pre>
+    <h4>Linking to a Relative Page</h4>
+        <p>When making multi-page static websites, web developers ofthen store HTML files in a "root directory", or a main folder where all the files for the project are stored. As the project grows, additional folders may be added in the root to keep code organized.</p>
+            <pre>
+                project folder
+                    about.html
+                    index.html
+                    contact.html
+            </pre>
+        <p>Because all the files are stored in the same folder, the pages can be linked together using a <em>relative path</em>. A relative path is a filename that shows the path to a local file vs an absolute path (a full URL to a file stored in another folder). The "./" tells the browser to look for the file in the current folder. "../" would tell the browser to look in the parent folder. ".../" would tell the browser to find the file in a grandparent folder, etc.</p>
+            <pre>
+                <code>
+                    &lt;a href="./contact.html"&gt;Contact&lt;/a&gt;
+            </code>
+        </pre>
+    <h4>Linking at Will</h4>
+        <p>HTML lets you turn nearly any element into a link by wrapping that element with an anchor element. For example, to turn an image into a link, the syntax would be:</p>
+            <pre>
+                <code>
+                    &lt;a href="www.website.com" target="_blank"&gt;&lt;img src="img.jpg" alt="an apple"/&gt;&lt;/a&gt;
+                </code>
+            </pre>
+    <h4>Linking to the Same Page</h4>
+        <p>You can create links to specific parts of your page to improve navigation. To link to a target on the same page, giv ethe target an "id":</p>
+            <pre>
+                <code>
+                    &lt;p id="top"&gt;Top&lt;/p&gt;
+                </code>
+            </pre>        
+        <p>The target link is a string containing the "#" and the target element's ID.</p>
+            <pre>
+                <code>
+                    &lt;a href="#top"&gt;Back to top&lt;/a&gt;
+                </code>
+            </pre>
+    <h4>Navigation</h4>
+            <p>Use the &lt;nav&gt; tag to contain a &lt;ul&gt; element with links to the pages of your site. You can then use CSS to style the &lt;nav&gt; element into either a horizontal or vertical navigation menu, and even come back later to add interactive functions with JavaScript.</p>
+                <pre>
+                    <code>
+                        &lt;nav&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+                                &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/nav&gt;
+                    </code>
+                </pre>
+    <h2>Best Practices</h2>
+    <h4>Whitespace</h4>
+        <p>As your code grows, it becomes hard to keep track of how elements are related. Programmers use "whitespace" and "indentation" to visualize the relationship between elements. Both tools take advantage of the fact that the position of elements in a browser are independent of the amount of whitespace or indentation in the HTML file. Browsers ignore whitespace in HTML files when they render a webpage. For example:</p>
+            <pre>
+                <code>
+                    &lt;body&gt;&lt;p&gt;Text&lt;/p&gt;&lt;/body&gt;
+                </code>
+            </pre>
+        <p>...is a lot harder to read than:</p>    
+            <pre>
+                <code>
+                    &lt;body&gt;
+                        &lt;p&gt;Text&lt;/p&gt;
+                    &lt;/body&gt;
+                </code>
+            </pre>
+        <p>...and they render the same way.</p>
+    <h4>Indentation</h4>
+        <p>W3C maintains the HTML standards. The current standard for indentation is 4 spaces. Indentation is used to illustrate which elements are nested within other elements.</p>
+    <h4>Comments</h4>
+        <p>Comments begin with <code>&lt;!--</code> and end with <code>--&gt;</code>. Anything written in between will be ignored by the browser. Comments help you and others understand your code if you come back to review it at a much later date. They also allow you to experiment with new code without having to delete old code.</p>
+    <h4>HTML Tags (Notes)</h4>
+        <p>Most tags are used to describe the content they surround, which helps us modify and style content later. Knowing when to use each tag is based on how you want to describe your content. Descriptive, well chosen tags are one key to high-quality web development.</p>
+    <footer>
+        <div class="footer">
+            <p>&copy; 2020 Jessie Rohrer</p>
+        </div>
+    </footer>
+  </body>
+</html>
