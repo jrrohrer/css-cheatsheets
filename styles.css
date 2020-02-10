@@ -71,6 +71,7 @@ pre {
   color: azure;
   text-align: left;
   border: 2px solid azure;
+  margin: 10px 50px;
   max-width: 100%;
   overflow: auto;
   display: block;
