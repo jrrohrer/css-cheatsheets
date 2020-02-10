@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML, CSS, & JavaScript Reference Guide</title>
+    <link href="./styles.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="css.html">CSS Home</a></li>
+          <li><a href="css-selectors.html">Setup, Selectors, & Visual Rules</a></li>
+          <li><a href="box-model.html">Box Model</a></li>
+          <li><a href="">Display & Positioning</a></li>
+          <li><a href="">Color</a></li>
+          <li><a href="">Typography</a></li>
+          <li><a href="">CSS Grid</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h1>CSS Box Model</h1>
+    <div class="notes">
+        <h4>Introduction to the Box Model</h4>
+            <p>Browsers load HTML elements with default position values. This leads to an unexpected and unwanted user experience. It limits the views you can create. The Box Model is an important concept to understand regarding how elements are positioned and displayed on a web page. All elements on a page are interpreted by the browser as "living" in a box -- hence the name "box model".</p>
+            <p>The box model is a set of properties which deine parts of an element that take up space on a web page.</p>
+            <ol>
+                <li>Width & Height: specifies the width and height of a content area.</li>
+                <li>Padding: specifies the amount of space between the content area and the border.</li>
+                <li>Border: specifies the thickness and style of the border surrounding the content area.</li>
+                <li>Margin: specifies the amount of space between the border and the outside edge of the element.</li>
+            </ol>
+            <img src="boxmodel.png" alt="a diagram of the CSS box model" width="300"/>
+        <h4>Height & Width</h4>
+            <p>An element's content has two dimensions: height and width. By default, the dimensions of an HTML box are set to hold the raw contents of the box. The CSS height and width properties can be used to modify these default dimensions.</p>
+            <pre>
+                <code>
+                    p {
+                        height: 80px;
+                        width: 440px;
+                    }
+                </code>
+            </pre>
+            <p>Pixels allow you to set the exact size of an element's box, regardless of the screen they're viewed on. An element that takes up a laptop screen will overflow on a mobile screen.</p>
+        <h4>Borders</h4>
+            <p>A border is a line that surrounds an element, like a frame. Borders can be set with a specific width, style, and color.</p>
+            <ol>
+                <li>Width: the thickness of the border. A border's thickness can be set in pixels, or using the keywords "thin", "medium", or "thick".</li>
+                <li>Style: the design of the border. Browsers can render any of 10 different styles (like none, dotted, dashed, solid, etc).</li>
+                <li>Color: the color of the border. Web browsers can render colors using a few different formats, <a href="https://www.w3schools.com/colors/colors_names.asp">including using 140 built-in color keywords.</a></li>
+            </ol>
+            <pre>
+                <code>
+                    p {
+                        border: 3px solid coral;
+                    }
+                </code>
+            </pre>
+            <p>Default border settings are "border: medium none color" where color is the current color of the element. If the width, style, and color of a border aren't set, the browser assigns the default value for the property.</p>
+            <pre>
+                <code>
+                    p {
+                        border: solid coral;
+                    }
+                </code>
+            </pre>
+            <p>In the example above, width is not set, so it will default to medium.</p>
+        <h4>Border Radius</h4>
+            <p>Borders highlight the elements' true shape- square. You can use CSS to make modifications to the corners of an elements border box with the "border-radius" property.</p>
+            <pre>
+                <code>
+                    div.container {
+                        border: 3px solid rgb(44, 77, 100);
+                        border: radius: 5px;
+                    }
+                </code>
+            </pre>
+            <p>This will set all four corners of the border to a radius of 5px (the same curvature of a circle with a radius of 5px). You can create a border that is a perfect circle by setting the radius equal to the height of the box, or 100%.</p>
+            <pre>
+                <code>
+                    div.container {
+                        height: 60px;
+                        width: 60px;
+                        border: 3px solid rgb(44, 77, 100);
+                        border-radius: 100%;
+                    }
+                </code>
+            </pre>
+        <h4>Padding</h4>
+            <p>The space between the contents of a box and the borders of a box is known as padding. You can modify this space in CSS using the "padding" property.</p>
+            <pre>
+                <code>
+                    p.content {
+                        border: 3px solid coral;
+                        padding: 10px;
+                    }
+                </code>
+            </pre>
+            <p>This example puts 10px of space between the content and the border. The padding property is often used to expand the background color and make content look less cramped. If you want to be more specific about the amount of padding on each side of a box's content, there are the following properties:</p>
+                <ul>
+                    <li>padding-top</li>
+                    <li>padding-right</li>
+                    <li>padding-bottom</li>
+                    <li>padding-left</li>
+                </ul>
+            <p>Each property only affects the padding on its specified side. In the following example, padding is only added to the left side:</p>
+            <pre>
+                <code>
+                    p {
+                        border: 3px solid blue;
+                        padding-left: 10px;
+                    }
+                </code>
+            </pre>
+            <p>Another use of the padding property is to specify exactly how much padding there should be on each side of the content in a single declaration:</p>
+            <pre>
+                <code>
+                    p {
+                        padding: 6px 11px 4px 9px;
+                    }
+                </code>
+            </pre>
+            <p>The four values correspond to the amount of padding around the element in a clockwise rotation. It specifies the padding on top, right, bottom, and left sides of the content in that order. When using this method, we must specify a value for each side of the content. However, if the top and bottom values are equal and left and right values are equal, you can use the following shortcut:</p>
+            <pre>
+                <code>
+                    p {
+                        padding: 5px 10px;
+                    }
+                </code>
+            </pre>
+            <p>The first value is the top & bottom padding and the second value is the left and right padding.</p>
+        <h4>Margins</h4>
+            <p>Margins are the space directly outside of the box. The margin property is used to specify the size of this space.</p>
+            <pre>
+                <code>
+                    p {
+                        margin: 40px;
+                    }
+                </code>
+            </pre>
+            <p>This example leaves 40px of space outside of the box on all four sides of the element. The other elements on the page cannot come within 40px of the paragraph elements' borders. If you want to be more specific about the margin on each side of the box, you can use the following properties:</p>
+                <ol>
+                    <li>margin-top</li>
+                    <li>margin-right</li>
+                    <li>margin-bottom</li>
+                    <li>margin-left</li>
+                </ol>
+            <p>Using these properties only affects the margin on the corresponding side of the element, allowing for more flexibility.</p>
+            <pre>
+                <code>
+                    p {
+                        margin-right: 40px;
+                    }
+                </code>
+            </pre>
+            <p>Like in the padding property, we can specify exactly how much margin each side of the element gets using one declaration.</p>
+            <pre>
+                <code>
+                    p {
+                        margin: 10px 6px 5px 14px;
+                    }
+                </code>
+            </pre>
+            <p>The four values refer to the amount of space around the box in a clockwise rotation. When using this method, a value must be specified for all four sides. You can use the same shortcut as the padding property if the top and bottom margins and left and right margins are equal.</p>
+            <pre>
+                <code>
+                    p {
+                        50px 40px;
+                    }
+                </code>
+            </pre>
+        <h4>Auto</h4>
+            <p>The margin property also lets you center content.</p>
+            <pre>
+                <code>
+                    div {
+                        width: 400px;
+                        margin: 0 auto;
+                    }
+                </code>
+            </pre>
+            <p>The value 0 sets the top and bottom margins. The value "auto" tells the browser to adjust the left and right margins until the element is centered in its parent element. In order to center an element, a width must be set for that element. Otherwise the width of the element will automatically be set to that of its parent element. It's not possible to center an element that takes up the full width of the page. The example div above can be centered in a parent element with width greater than 400px.</p>
+        <h4>Margin Collapse</h4>
+            <p>Padding is space added inside an element's border, while margin is space added outside an element's border. Another difference is that top and bottom margins collaps while top and bottom padding does not. Horizontal margins, like padding, are always displayed and added together.</p>
+            <pre>
+                <code>
+                    #img-one {
+                        margin-right: 40px;
+                    }
+
+                    #img-two {
+                        margin-left: 40px;
+                    }
+                </code>
+            </pre>
+            <p>The images in the example above will be as far apart as the sum of their adjacent margins (40px).</p>
+            <p>Vertical margins do not add! Instead, the larger of the two vertical margins sets the distance between adjacent elements. In the example below, the vertical margin will be 30px, even though the sum is 50px. The margin collapses so the spacing is only dependent upon the #img-one bottom margin:</p>
+            <pre>
+                <code>
+                    #img-one {
+                        margin-bottom: 30px;
+                    }
+
+                    #img-two {
+                        margin-top: 40px;
+                    }
+                </code>
+            </pre>
+        <h4>Minimum amd Maximum Height and Width</h4>
+            <p>Because a website can be viewed through displays of differing size, the content on the page can suffer from those changes in size. To avoid this problem, CSS offers two properties that can limit how narrow or how wide an element's box can be sized.</p>
+                <ol>
+                    <li>min-width: sets the minimum width of an element's box.</li>
+                    <li>max-width: sets the maximum width of an element's box.</li>
+                </ol>
+            <pre>
+                <code>
+                    p {
+                        min-width: 300px;
+                        max-width: 600px;
+                    }
+                </code>
+            </pre>
+            <p>Content, like text, can become difficult to read when a browser window is narrowed or expanded. These properties ensure that content is legible by limiting the size of the element. You can likewise limit the height of an element using:</p>
+                <ol>
+                    <li>min-height: sets the minimum height of an element's box.</li>
+                    <li>max-height: sets the maximum height of an element's box.</li>
+                </ol>
+            <pre>
+                <code>
+                    p {
+                        min-height: 150px;
+                        max-height: 300px;
+                    }
+                </code>
+            </pre>
+            <p>If the "max-height" property is set too low, it's possible for the content to spill out of the box, resulting in illegible content.</p>
+        <h4>Overflow</h4>
+            <p>All the components of the box model comprise an element's size. For example, an image that has the following dimensions is 364px wide and 444px tall:</p>
+                <ul>
+                    <li>300px wide</li>
+                    <li>400px tall</li>
+                    <li>10px left and right padding</li>
+                    <li>10px top and bottom padding</li>
+                    <li>4px border on all sides</li>
+                    <li>40px left and right margin</li>
+                    <li>10px top and bottom margin</li>
+                </ul>
+            <p>The total dimensions are calculated by adding all of the vertical dimensions together and all of the horizontal dimensions together. Sometimes these components result in an element that is larget than the parent's containing area. The "overflow" property controls what happens to content that spills outside of its box. Overflow has three possible values:</p>
+                <ol>
+                    <li>hidden: overflow content will be hidden from view.</li>
+                    <li>scroll: a scroll bar will be added to the box so the excess content can be viewed by scrolling.</li>
+                    <li>visible: overflow content will be displayed outside of the containing element (this is the default).</li>
+                </ol>
+            <pre>
+                <code>
+                    p {
+                        overflow: scroll;
+                    }
+                </code>
+            </pre>
+            <p>The overflow property is set on a parent element to instruct the browser how to render child elements.</p>
+        <h4>Resetting Defaults</h4>
+            <p>All major browsers have a default stylesheet they use in the absence of an external stylesheet, known as a "user agent stylesheet". They often have default values for padding and margin, which affects how a browser displays HTML elements, making it difficult for a developer to design or style a web page. To reset the default values and work with a "clean slate", place this code at the top of your stylesheet:</p>
+            <pre>
+                <code>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                    }
+                </code>
+            </pre>
+        <h4>Visibility</h4>
+            <p>Elements can be hidden from view with the "visibility" property, which has two values:</p>
+                <ol>
+                    <li>hidden: hides an element from view.</li>
+                    <li>visibile: displays an element.</li>
+                </ol>
+            <pre>
+                <code>
+                    &lt;ul&gt;
+                        &lt;li&gt;explore&lt;/li&gt;
+                        &lt;li&gt;connect&lt;/li&gt;
+                        &lt;li class="future"&gt;donate&lt;/li&gt;
+                    &lt;/ul&gt;
+
+                    .future {
+                        visibility: hidden;
+                    }
+                </code>
+            </pre>
+            <p>Keep in mind: Users can still view the contents hidden by viewing the source code in their browser. The browser will only hide the contents, it will leave an empty space where the element is intended to display.</p>
+            <p>What is the difference between "display: none;" and "visibility: hidden;"?<br>An element with "display: none;" will be completely removed from the webpage. An element with "visibility: hidden;" will not be visible, but the space reserved for it will be.</p>
+        <h3>Changing the Box Model</h3>
+            <p>With the original box model, the border thickness and padding are added to the overall dimensions of the box. This makes it difficult to accurately size a box. Over time, it can make all of a web page's content difficult to position and manage.</p>
+        <h4>Box Model: Content Box</h4>
+            <p>Many properties in CSS have a default value and don't have to be explicitly set in the stylesheet. For example, the default font-weight of text is "normal" but this statement is not typically specified in a stylesheet. The same can be said about the box model that browsers assume. In CSS, the "box-sizing" property controls the type of box model the browser should use when interpreting a web page. The default value of "box-sizing" is "content-box" (the same box model that is affected by border thickness and padding).</p>
+        <h4>Box Model: Border Box</h4>
+            <p>We can reset the entire box model and specify a new one: "border-box".</p>
+            <pre>
+                <code>
+                    * {
+                        box-sizing: border-box;
+                    }
+                </code>
+            </pre>
+            <p>This resets the box model to border box for all HTML elements. This new box model avoids the dimensional issues that exist in the former box model. The height and width of the box remains fixed. The border thickness and padding will be included inside of the box, which means the overall dimensions of the box do not change.</p>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>&copy; 2020 Jessie Rohrer</p>
+        </div>
+    </footer>
+  </body>
+</html>
