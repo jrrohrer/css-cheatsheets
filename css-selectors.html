@@ -86,33 +86,58 @@
       <p>CSS can select which elements to style by using that element's <b>tag name</b>. For example, "p" for paragraphs, "h1" for main headings, etc.<br>It can also select an element based on a <b>class name</b>. If an element has a class applied to it, CSS can use it to apply styling. You can add multiple names to an element's class attribute by listing them inside the quote marks separated by a space. This allows us to mix and match CSS classes to create unique styling without writing a custom class for every styling combination needed.<br>If an element needs to be styled uniquely (no matter what classes are applied to the element), we can give the element an <b>ID</b>. ID's are meant to style only one element, and override the styles of classes and tags. They should be used sparingly because they are difficult to override.</p>
       <h4>Syntax For Selecting HTML Elements</h4>
       <p>To select an element by its tag:</p>
-      <p>h1 { <br>
-          color: red;<br>
-      }</p>
+      <pre>
+        <code>
+          h1 {
+            color: red;
+          }
+        </code>
+      </pre>
       <p>To select an element by its class:</p>
-      <p>.class { <br>
-          color: red; <br>
-        }</p>
+      <pre>
+        <code>
+          .class {
+            color: red;
+          }
+        </code>
+      </pre>
       <p>To select an element by its ID:</p>
-      <p>#id { <br>
-      color: red;<br>
-      }</p>
+      <pre>
+        <code>
+          #id {
+            color: red;
+          }
+        </code>
+      </pre>
       <h4>Chaining Selectors</h4>
       <p>You can select only HTML elements that have a specific class to apply styling to only those elements, and not every element with that tag. For example:</p>
-      <p>h1.special { <br>
-        color: red; <br>
-        } </p>
+      <pre>
+        <code>
+          h1.special {
+            color: red;
+          }
+        </code>
+      </pre>
       <p>This selects all h1 elements with a class of "special" and disregards all h1 elements that do not share that class attribute.</p>
       <h4>Nested Elements</h4>
       <p>CSS also supports selecting elements that are nested within other elements. For example:</p>
-      <p>.main-list li { <br>
-        }</p>
+      <pre>
+        <code>
+          .main-list li {
+            color: red;
+          }
+        </code>
+      </pre>
       <p>This selects only the list items inside of a list with class .main-list.</p>
       <h4>Multiple Selectors</h4>
       <p>To make CSS more concise, it's possible to add CSS styles to multiple CSS selectors all at once. This prevents writing repetitive code. For example:</p>
-      <p>h1, .menu { <br>
-      font-family: georgia;<br>
-      }</p>
+      <pre>
+        <code>
+          h1, .menu {
+            font-family: Georgia;
+          }
+        </code>
+      </pre>
       <h4>Specificity</h4>
       <p>Specificity is the order by which a browser decides which CSS styles will be displayed. Best practice is to use the lowest degree of specificity to style an element so that if the element needs a new style, it is simple to override. Tags are lowest specificity, classes are middle ground, and IDs are highest specificity. <br> IDs override classes and tags. If an element has a class and an ID, the browser will display the ID styling.<br>The only thing more specific than an ID is "!important". Important can be applied to specific attributes instead of full rules. It will override ANY style no matter how specific it is, and should almost never be used. It's best to avoide using !important altogether, since you can't guarantee that an element will need to have a specific style 100% of the time. If you are tempted to use it or are working with code that uses it, you should consider reorganizing the CSS, making the code more flexible and easier to maintain in the long run.</p>
       <h4>Chaining and Specificity</h4>
